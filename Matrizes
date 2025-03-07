@@ -1,0 +1,55 @@
+fn main(){
+    let matriz: [[i32;3];2] = [
+        [1,2,3],
+        [4,5,6],
+    ];
+    println!("Matriz: {:?}", matriz);
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+fn main (){
+    let mut matriz: Vec<Vec<i32>> = vec![
+        vec![1,2,3],
+        vec![4,5,6],
+        ];
+        
+        matriz.push(vec![7,8,9]); // Adicionando uma nova linha
+        
+        println!("Matriz: {:?}",matriz);
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+use std::collections::VecDeque;
+fn main(){
+    let mut fila: VecDeque<i32> = VecDeque::new();
+        fila.push_back(1); //Entra na fila
+        fila.push_back(2);
+        fila.push_back(3);
+    println!("{:?}",fila);
+    println!("{:?}",fila.pop_front()); //Sai o primeiro que entrou
+    println!("{:?}",fila); //[2,3]
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!PROVA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+fn main(){
+    let mut lista = vec![1,2,3,4];
+    lista.push(5); //Adiciona no final
+    lista.insert(2,10); //Adiciona na posição 2
+    println!("{:?}",lista); //[1,2,10,3,4,5]
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+use std::collections::LinkedList;
+fn main(){
+    let mut lista: LinkedList<i32> = LinkedList::new();
+    
+    lista.push_back(10);
+    lista.push_back(20);
+    lista.push_back(30);
+    println!("{:?}",lista);
+}
