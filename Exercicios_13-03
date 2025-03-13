@@ -1,0 +1,123 @@
+fn consumir(s:String){ //'s' recebe a propriedade do valor
+    println!("{}",s);
+}
+
+fn main(){
+    let texto=String::from("Olá,Rust!");
+    consumir(texto); //'texto' é ,ovido para a função
+    //println!("{{}",texto); //ERRO! 'texto' não é mais válido
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+fn imprimir(s:&String){ //Apenas uma referência, sem mover ownership
+    println!("{}",s);
+}
+
+fn main(){
+    let texto=String::from("Olá, Rust!");
+    imprimir(&texto); //Passamos uma referência
+    println!("{}",texto); //'texto' ainda é válido
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+ Função com Parâmetros
+
+fn dobro(numero: i32) {
+    println!("O dobro de {} é {}", numero, numero * 2);
+}
+
+fn main() {
+    dobro(5);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Função com Retorno
+
+fn soma(a: i32, b: i32) -> i32 {
+    a + b  // Sem ponto-e-vírgula, indica retorno
+}
+
+fn main() {
+    let resultado = soma(3, 7);
+    println!("A soma é {}", resultado);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Função Recursiva
+
+fn fatorial(n: u32) -> u32 {
+    if n == 0 { 1 } else { n * fatorial(n - 1) }
+}
+
+fn main() {
+    println!("Fatorial de 5: {}", fatorial(5));
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Função com String e Referência
+
+fn cumprimentar(nome: &str) -> String {
+    format!("Olá, {}!", nome)
+}
+
+fn main() {
+    let nome = String::from("Alice");
+    let mensagem = cumprimentar(&nome);
+    println!("{}", mensagem);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Funções Public x Private - Exemplo sem pub (Privado)
+
+mod minha_biblioteca {
+    fn saudacao() {
+        println!("Olá, mundo!");
+    }
+}
+
+fn main() {
+    minha_biblioteca::saudacao(); // ERRO: A função é privada
+}
+///////////////////////////////////////////////////////////////////////////////////////////////
+Exemplo com pub (Público)
+
+mod minha_biblioteca {
+    pub fn saudacao() {
+        println!("Olá, mundo!");
+    }
+}
+
+fn main() {
+    minha_biblioteca::saudacao(); // Agora funciona!
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Exemplo comparativo
+
+// Array fixo
+let array: [i32; 3] = [1, 2, 3];
+
+// Vetor dinâmico
+let mut vetor = vec![1, 2, 3];
+vetor.push(4);
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Acessando Elementos
+
+fn main() {
+    let letras = ['A', 'B', 'C'];
+    println!("A segunda letra é: {}", letras[1]); // B
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+Matrizes Multidimensionais
+
+fn main() {
+    let matriz: [[i32; 3]; 2] = [
+        [1, 2, 3], // linha 0
+        [4, 5, 6]  // linha 1
+    ];
+
+    println!("Elemento (1,2): {}", matriz[1][2]); // 6
+}
